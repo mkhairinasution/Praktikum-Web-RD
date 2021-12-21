@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+      *{
+        font-family: "Poppins" , sans-serif;
+      }
+  * {
+    box-sizing: border-box;
+  }
+
+.container{
+    padding: 20px; 
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  @media screen and (max-width: 600px) {
+    .column.side, .column.middle {
+      width: 100%;
+    }
+  }
+  </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="section1">
+            <h2>Web Praktikum 3</h2>
+            <form>
+                <label for="warna">Pilih warna backgroundmu</label>
+                <select id="warna" name="warna" onchange="getWarna()">
+                    <option value="white">Normal</option>
+                    <option value="red">Merah</option>
+                    <option value="green">Hijau</option>
+                    <option value="blue">Biru</option>
+					<option value="aqua">Biru Air</option>
+					<option value="brown">Coklat</option>
+                </select><br><br>
+                <label for="oli">Kamu beli oli merek apa apa?</label>
+                <select id="oli" name="oli" onchange="getoli()">
+                    <option value="">Pilih disini..</option>
+                    <option value="oli federal sudah cocok kok buat motor kamu..">federal</option>
+                    <option value="oli repsol bagus buat motor kamu honda..">Repsol</option>
+                    <option value="oli yamalube bagus buat motor kamu yamaha..">yamalube</option>
+                    <option value="oli shell lebih bagus banget ni buat motor kamu lebih dingin loh..">shell</option>
+                </select><br>
+                <p id="tampiloli"></p>
+                <label for="nomor">Nomor?</label>
+                <input type="number" name="nomor" id="nomor" onkeyup="getNomor()"><br>
+                <p id="tampilNomor"></p>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function getWarna(){
+            var w = document.getElementById('warna').value;
+            document.body.style.backgroundColor = w;
+        }
+        function getoli(){
+            var x = document.getElementById('oli').value;
+            document.getElementById('tampiloli').innerHTML=x;
+        }
+        function getNomor(){
+            var y = document.getElementById('nomor').value;
+            var result = 1;
+            for (var i = 1; i <= y; i++) {
+                result = result * i;
+            }
+            document.getElementById('tampilNomor').innerHTML='Hasil faktorialnya adalah '+result;
+        }
+    </script>
+</body>
+</html>
